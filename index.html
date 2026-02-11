@@ -1,39 +1,204 @@
-<section style="padding: 40px; font-family: Arial, sans-serif; max-width: 900px; margin: auto;">
-    <h1 style="text-align:center; font-size: 2.3rem; margin-bottom: 20px;">
-        Deep Space Medical AI Project
-    </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medimind – Deep Space Medical AI</title>
 
-    <p style="font-size: 1.1rem; line-height: 1.6;">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    /* ---- NASA STYLE COLORS ---- */
+    :root {
+        --navy: #0b1a33;
+        --deep-blue: #102544;
+        --soft-blue: #b9d9ff;
+        --highlight: #78aaff;
+        --white: #f4f7fb;
+    }
+
+    body {
+        margin: 0;
+        background: var(--navy);
+        color: var(--white);
+        font-family: 'Roboto', sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* ---- STARFIELD BACKGROUND ---- */
+    body:before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: url('https://i.imgur.com/5hCIGMF.png') repeat;
+        opacity: 0.15;
+        z-index: -1;
+        animation: stars 100s linear infinite;
+    }
+    @keyframes stars {
+        from {background-position: 0 0;}
+        to {background-position: -20000px 20000px;}
+    }
+
+    /* ---- NAVBAR ---- */
+    nav {
+        background: var(--deep-blue);
+        padding: 18px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    nav .logo img {
+        height: 45px;
+    }
+    nav .logo-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        color: var(--highlight);
+        font-weight: 600;
+    }
+    nav .links a {
+        color: var(--soft-blue);
+        margin-left: 24px;
+        text-decoration: none;
+        font-size: 1.05rem;
+        transition: 0.3s;
+    }
+    nav .links a:hover {
+        color: var(--highlight);
+    }
+
+    /* ---- SECTION CONTAINER ---- */
+    .section-container {
+        padding: 70px 20px;
+        max-width: 900px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.8rem;
+        font-family: 'Orbitron', sans-serif;
+        color: var(--highlight);
+        margin-bottom: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    h2 {
+        margin-top: 40px;
+        color: var(--soft-blue);
+        font-size: 1.7rem;
+        border-left: 4px solid var(--highlight);
+        padding-left: 12px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    h3 {
+        margin-top: 25px;
+        color: var(--highlight);
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #d9e7f8;
+    }
+
+    .divider {
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(to right, transparent, var(--soft-blue), transparent);
+        margin: 30px 0;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: var(--deep-blue);
+        color: var(--soft-blue);
+        font-size: 0.95rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ---------------- NAVBAR ---------------- -->
+<nav>
+    <div class="logo">
+        <img src="logo.png" alt="Medimind Logo">
+        <div class="logo-text">MEDIMIND</div>
+    </div>
+
+    <div class="links">
+        <a href="#mission">Mission</a>
+        <a href="#objectives">Objectives</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- ---------------- MAIN CONTENT ---------------- -->
+<section class="section-container" id="mission">
+    <h1>Medimind</h1>
+    <p>
         Deep-space missions face a major challenge: medical communication delays that can reach up to 
         <strong>40 minutes each way</strong>. During emergencies, astronauts cannot afford to wait for Earth 
-        to respond. Our project aims to eliminate this delay by developing an advanced, autonomous medical AI 
-        that provides <strong>real-time support</strong> even when communication is impossible.
+        to respond. Medimind aims to eliminate this delay by providing an advanced, autonomous medical AI 
+        capable of delivering <strong>real-time support</strong> even when communication is impossible.
     </p>
 
-    <h2 style="margin-top: 30px;">Core Objectives</h2>
+    <div class="divider"></div>
+
+    <h2 id="objectives">Core Objectives</h2>
 
     <h3>1. Instant Medical Response</h3>
-    <p style="font-size: 1.05rem; line-height: 1.6;">
-        The AI reduces communication delay from 40 minutes to seconds by offering immediate, 
+    <p>
+        Medimind reduces communication delays from 40 minutes to seconds by offering immediate, 
         mission-approved medical information and guidance.
     </p>
 
     <h3>2. Operates During Communication Blackouts</h3>
-    <p style="font-size: 1.05rem; line-height: 1.6;">
-        Spacecraft regularly experience signal loss. Our AI is designed to function completely offline, 
-        continuing to give reliable support during total blackout periods.
+    <p>
+        Spacecraft regularly experience signal loss. Medimind functions completely offline, 
+        continuing to support crews even during total blackout periods.
     </p>
 
     <h3>3. High-Level Diagnosis Support</h3>
-    <p style="font-size: 1.05rem; line-height: 1.6;">
-        The AI helps crew members understand symptoms, consider possible causes, and follow 
-        safe treatment protocols already approved for missions.  
+    <p>
+        The AI helps astronauts understand symptoms, consider possible causes, and follow safe, 
+        pre-approved mission medical protocols.
     </p>
 
     <h3>4. Autonomous Deep-Space Operation</h3>
-    <p style="font-size: 1.05rem; line-height: 1.6;">
-        The system works independently for long-duration missions with no internet, no cloud processing, 
-        and limited computing hardware. It becomes a self-contained medical support tool for crews 
-        traveling far beyond Earth.
+    <p>
+        Medimind operates independently for long-duration missions with no internet, no cloud systems, 
+        and limited hardware — becoming a self-contained medical support system for crews exploring far beyond Earth.
     </p>
 </section>
+
+<!-- ---------------- FOOTER ---------------- -->
+<footer id="contact">
+    © 2026 Medimind – Deep Space Medical AI Project  
+</footer>
+
+</body>
+</html>
