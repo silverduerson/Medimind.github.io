@@ -12,28 +12,55 @@
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top, #1e2f4d 0%, #0b1120 70%);
             color: #dde9ff;
             overflow-x: hidden;
         }
 
-        /* SOFTER STAR ANIMATION */
-        .stars {
+        /* ------------------ SPACE BACKGROUND ------------------ */
+        .space {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: url('https://i.ibb.co/4fQw7N1/stars-small.png');
-            opacity: 0.35; /* Less busy */
-            animation: floatStars 55s linear infinite;
-            pointer-events: none;
+            background: black;
+            overflow: hidden;
+            z-index: -1;
         }
 
-        @keyframes floatStars {
-            from { transform: translateY(0); }
-            to { transform: translateY(-1200px); }
+        /* STARFIELD */
+        .stars {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('https://i.ibb.co/4fQw7N1/stars-small.png') repeat;
+            opacity: 0.25; /* subtle */
+            animation: moveStars 120s linear infinite;
         }
 
-        /* NAVBAR */
+        @keyframes moveStars {
+            from { transform: translate(0,0); }
+            to { transform: translate(-1000px,-500px); }
+        }
+
+        /* PLANET */
+        .planet {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #4f81ff, #102544);
+            top: 20%;
+            left: -250px;
+            animation: movePlanet 300s linear infinite;
+            box-shadow: 0 0 60px rgba(79,129,255,0.7);
+        }
+
+        @keyframes movePlanet {
+            0% { left: -250px; top: 20%; }
+            50% { left: 110%; top: 40%; }
+            100% { left: -250px; top: 20%; }
+        }
+
+        /* ------------------ NAVBAR ------------------ */
         header {
             background: rgba(0, 0, 0, 0.55);
             backdrop-filter: blur(6px);
@@ -62,7 +89,7 @@
             color: #ffffff;
         }
 
-        /* CONTENT */
+        /* ------------------ CONTENT ------------------ */
         section {
             position: relative;
             z-index: 2;
@@ -86,7 +113,7 @@
         h2 {
             margin-top: 35px;
             color: #a8c6ff;
-            font-size: 2rem; /* Bigger */
+            font-size: 2rem;
             border-bottom: 1px solid #294469;
             padding-bottom: 6px;
         }
@@ -106,8 +133,13 @@
 
 <body>
 
-<div class="stars"></div>
+<!-- ------------------ BACKGROUND ------------------ -->
+<div class="space">
+    <div class="planet"></div>
+    <div class="stars"></div>
+</div>
 
+<!-- ------------------ HEADER ------------------ -->
 <header>
     <div class="logo">
         <img src="logo.png" alt="Medimind Logo">
@@ -124,6 +156,7 @@
     </nav>
 </header>
 
+<!-- ------------------ MAIN CONTENT ------------------ -->
 <section>
     <h1>Medimind</h1>
 
