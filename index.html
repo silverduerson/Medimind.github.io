@@ -1,142 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medimind – Deep Space Medical AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medimind – Deep Space Medical AI</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            color: #dde9ff;
-            overflow-x: hidden;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: #dde9ff;
+        overflow-x: hidden;
+    }
 
-        /* ------------------ SPACE BACKGROUND ------------------ */
-        .space {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: black;
-            overflow: hidden;
-            z-index: -1;
-        }
+    /* ------------------ SPACE BACKGROUND ------------------ */
+    .space {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
 
-        /* STARFIELD */
-        .stars {
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('https://i.ibb.co/4fQw7N1/stars-small.png') repeat;
-            opacity: 0.25; /* subtle */
-            animation: moveStars 120s linear infinite;
-        }
+    /* STARFIELD */
+    .stars {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: url('https://i.ibb.co/4fQw7N1/stars-small.png') repeat;
+        opacity: 0.25; /* subtle */
+        animation: moveStars 120s linear infinite;
+    }
 
-        @keyframes moveStars {
-            from { transform: translate(0,0); }
-            to { transform: translate(-1000px,-500px); }
-        }
+    @keyframes moveStars {
+        from { transform: translate(0,0); }
+        to { transform: translate(-1000px,-500px); }
+    }
 
-        /* PLANET */
-        .planet {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #4f81ff, #102544);
-            top: 20%;
-            left: -250px;
-            animation: movePlanet 300s linear infinite;
-            box-shadow: 0 0 60px rgba(79,129,255,0.7);
-        }
+    /* MOVING BACKGROUND IMAGE */
+    .moving-bg {
+        position: absolute;
+        width: 1200px; /* adjust size as needed */
+        height: 600px; 
+        background: url('spaceback.png') no-repeat center center;
+        background-size: cover;
+        top: 10%;
+        left: -1300px; /* start offscreen */
+        animation: moveBackground 300s linear infinite;
+        opacity: 0.8;
+        filter: brightness(0.8);
+    }
 
-        @keyframes movePlanet {
-            0% { left: -250px; top: 20%; }
-            50% { left: 110%; top: 40%; }
-            100% { left: -250px; top: 20%; }
-        }
+    @keyframes moveBackground {
+        0% { left: -1300px; }
+        50% { left: 110%; }
+        100% { left: -1300px; }
+    }
 
-        /* ------------------ NAVBAR ------------------ */
-        header {
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid #22344d;
-            padding: 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 2;
-        }
+    /* MOON PLANET */
+    .moon {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #f0f0f0, #b0b0b0);
+        border: 2px solid #e0e0e0;
+        top: 30%;
+        left: -250px;
+        animation: moveMoon 300s linear infinite;
+        box-shadow: 0 0 40px rgba(240,240,240,0.7);
+    }
 
-        .logo img {
-            height: 55px;
-        }
+    @keyframes moveMoon {
+        0% { left: -250px; top: 30%; }
+        50% { left: 110%; top: 35%; }
+        100% { left: -250px; top: 30%; }
+    }
 
-        nav a {
-            color: #9bbcff;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 1rem;
-            transition: 0.2s;
-        }
+    /* ------------------ NAVBAR ------------------ */
+    header {
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid #22344d;
+        padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
 
-        nav a:hover {
-            color: #ffffff;
-        }
+    .logo img { height: 55px; }
 
-        /* ------------------ CONTENT ------------------ */
-        section {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(4px);
-        }
+    nav a {
+        color: #9bbcff;
+        text-decoration: none;
+        margin-left: 25px;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            font-family: 'Orbitron', sans-serif;
-            color: #78aaff;
-            margin-top: 0;
-        }
+    nav a:hover { color: #ffffff; }
 
-        h2 {
-            margin-top: 35px;
-            color: #a8c6ff;
-            font-size: 2rem;
-            border-bottom: 1px solid #294469;
-            padding-bottom: 6px;
-        }
+    /* ------------------ CONTENT ------------------ */
+    section {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
+    }
 
-        h3 {
-            margin-top: 25px;
-            color: #c6dcff;
-            font-size: 1.35rem;
-        }
+    h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #78aaff; margin-top: 0; }
+    h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
+    h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
+    p { line-height: 1.7; font-size: 1.17rem; }
 
-        p {
-            line-height: 1.7;
-            font-size: 1.17rem;
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
 <!-- ------------------ BACKGROUND ------------------ -->
 <div class="space">
-    <div class="planet"></div>
     <div class="stars"></div>
+    <div class="moving-bg"></div>
+    <div class="moon"></div>
 </div>
 
 <!-- ------------------ HEADER ------------------ -->
