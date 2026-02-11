@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medimind – Prototype Log</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #dde9ff;
+    overflow-x: hidden;
+    background: black;
+}
+
+/* ------------------ TECH LINES ANIMATION ------------------ */
+.tech-line {
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(to right, #78aaff, transparent);
+    opacity: 0.5;
+    top: 0;
+    left: -200px;
+    animation: moveLine linear infinite;
+}
+
+@keyframes moveLine {
+    0% { transform: translateX(0) translateY(0); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateX(1200px) translateY(50px); opacity: 0; }
+}
+
+/* Header */
+header {
+    background: #1e3a8a; 
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #22344d;
+}
+
+.logo img { height: 55px; }
+
+nav a {
+    color: #dde9ff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+nav a:hover { color: #ffffff; }
+
+/* Content */
+section {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #78aaff; margin-top: 0; }
+h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
+h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
+p { line-height: 1.7; font-size: 1.17rem; }
+
+/* Images */
+.prototype-image {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 1rem;
+    color: #9bbcff;
+    margin-bottom: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Tech animation container -->
+<div id="tech-lines-container"></div>
+
+<script>
+// Create multiple tech lines dynamically
+const techContainer = document.getElementById('tech-lines-container');
+for(let i = 0; i < 15; i++) {
+    const line = document.createElement('div');
+    line.classList.add('tech-line');
+    line.style.top = Math.random() * window.innerHeight + 'px';
+    line.style.width = 100 + Math.random() * 200 + 'px';
+    line.style.animationDuration = 2 + Math.random() * 4 + 's';
+    line.style.opacity = 0.3 + Math.random() * 0.7;
+    techContainer.appendChild(line);
+}
+</script>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Medimind Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="research.html">Research</a>
+        <a href="prototype.html">Prototype Log</a>
+        <a href="demo.html">Demo Video</a>
+        <a href="files.html">Project Files</a>
+        <a href="updates.html">Updates</a>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<section>
+    <h1>Prototype Log</h1>
+
+    <h2>Interface</h2>
+    <img src="p1.png" alt="Prototype Interface 1" class="prototype-image">
+    <div class="caption">P1 – User Interface Overview</div>
+
+    <img src="p2.png" alt="Prototype Interface 2" class="prototype-image">
+    <div class="caption">P2 – Interface Interaction Flow</div>
+
+    <h2>Server Side</h2>
+    <img src="p4.png" alt="Server Side Prototype" class="prototype-image">
+    <div class="caption">P4 – Server Side Architecture</div>
+</section>
+
+</body>
+</html>
 
