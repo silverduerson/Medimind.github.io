@@ -77,6 +77,23 @@ h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; c
 h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
 h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
 p { line-height: 1.7; font-size: 1.17rem; }
+ul { margin-left: 20px; margin-top: 10px; }
+li { margin-bottom: 10px; }
+
+/* Files */
+.file-item {
+    margin: 15px 0;
+}
+
+.file-item a {
+    color: #78aaff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.file-item a:hover {
+    text-decoration: underline;
+}
 </style>
 </head>
 
@@ -88,7 +105,6 @@ p { line-height: 1.7; font-size: 1.17rem; }
 <script>
 // Create multiple tech lines dynamically
 const techContainer = document.getElementById('tech-lines-container');
-
 for(let i = 0; i < 15; i++) {
     const line = document.createElement('div');
     line.classList.add('tech-line');
@@ -112,7 +128,7 @@ for(let i = 0; i < 15; i++) {
         <a href="research.html">Research</a>
         <a href="prototype.html">Prototype Log</a>
         <a href="demo.html">Demo Video</a>
-        <a href="Files&Updates.html">Project Files</a>
+        <a href="Files&Updates.html">Files & Updates</a>
     </nav>
 </header>
 
@@ -120,6 +136,7 @@ for(let i = 0; i < 15; i++) {
 <section>
     <h1>Medimind</h1>
 
+    <!-- Problem Statement -->
     <h2>Problem Statement</h2>
     <p>Deep-space missions face <strong>up to 40 minutes of communication delay each way</strong>, making it nearly impossible for astronauts to receive immediate medical support during emergencies. Limited crew medical training, unpredictable health conditions, and the complete lack of real-time expert assistance create a major mission risk.</p>
     <p>Medimind addresses this challenge by providing an autonomous, real-time medical AI system that functions <strong>without Earth communication</strong>, ensuring crew safety during long-duration missions.</p>
@@ -135,9 +152,35 @@ for(let i = 0; i < 15; i++) {
 
     <h3>4. Autonomous Deep-Space Operation</h3>
     <p>Built to run on limited spacecraft hardware, Medimind becomes an independent medical assistant for missions beyond Earth’s reach.</p>
+
+    <!-- Files Section -->
+    <h2>Project Files</h2>
+    <p>Download key project assets below:</p>
+
+    <div class="file-item">
+        <a href="p1.png" download>P1 – Interface Screenshot 1</a>
+    </div>
+    <div class="file-item">
+        <a href="p2.png" download>P2 – Interface Screenshot 2</a>
+    </div>
+    <div class="file-item">
+        <a href="p4.png" download>P4 – Server Side Architecture</a>
+    </div>
+
+    <!-- Updates Section -->
+    <h2>Project Updates</h2>
+    <ul>
+        <li><strong>Week 1:</strong> Defined project goals, researched space medical conditions.</li>
+        <li><strong>Week 2:</strong> Drafted system architecture, selected AI models, identified risks.</li>
+        <li><strong>Week 3:</strong> Developed prototype interface, set up simulation environment.</li>
+        <li><strong>Week 4:</strong> Integrated AI modules, tested with mock health data.</li>
+        <li><strong>Week 5:</strong> Analyzed results, planned next development phase.</li>
+        <li><strong>Additional:</strong> Added training procedures, safety protocols, and deployment steps.</li>
+    </ul>
 </section>
 
 </body>
 </html>
+
 
 
