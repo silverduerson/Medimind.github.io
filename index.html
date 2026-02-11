@@ -14,173 +14,101 @@ body {
     font-family: 'Inter', sans-serif;
     color: #dde9ff;
     overflow-x: hidden;
+    background: black;
 }
 
-/* ------------------ SPACE BACKGROUND ------------------ */
-.space {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('spaceback.png') no-repeat center center;
-    background-size: cover;
-    animation: moveSpace 600s linear infinite; /* VERY slow movement */
-    z-index: -3;
-}
-
-/* Slow drifting of space background */
-@keyframes moveSpace {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 5% 5%; }
-    100% { background-position: 0% 0%; }
-}
-
-/* STARFIELD FOR DEPTH */
-.stars {
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: url('https://i.ibb.co/4fQw7N1/stars-small.png') repeat;
-    opacity: 0.15;
-    animation: moveStars 120s linear infinite;
-    z-index: -2;
-}
-
-@keyframes moveStars {
-    from { transform: translate(0,0); }
-    to { transform: translate(-1000px,-500px); }
-}
-
-/* ------------------ MOON ------------------ */
-.moon {
+/* ------------------ SHOOTING STARS ------------------ */
+.shooting-star {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #f0f0f0, #b0b0b0);
-    border: 2px solid #e0e0e0;
-    top: 30%;
-    left: -250px; /* start off-screen left */
-    animation: moveMoon 300s linear infinite;
-    box-shadow: 0 0 40px rgba(240,240,240,0.7);
-    z-index: -1;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(white, transparent);
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: shoot 2s linear infinite;
 }
 
-@keyframes moveMoon {
-    0% { left: -250px; top: 30%; }
-    50% { left: 110%; top: 35%; }
-    100% { left: -250px; top: 30%; }
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(1000px, 600px) rotate(45deg);
+        opacity: 0;
+    }
 }
 
-/* ------------------ NAVBAR ------------------ */
-header {
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid #22344d;
-    padding: 15px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-}
-
-.logo img { height: 55px; }
-
-nav a {
-    color: #9bbcff;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 1rem;
-    transition: 0.2s;
-}
-
-nav a:hover { color: #ffffff; }
-
-/* ------------------ CONTENT ------------------ */
-section {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(4px);
-}
-
-h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #78aaff; margin-top: 0; }
-h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
-h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
-p { line-height: 1.7; font-size: 1.17rem; }
-
+/* Generate multiple stars */
 </style>
 </head>
 
 <body>
 
-<!-- ------------------ BACKGROUND ------------------ -->
-<div class="space"></div>
-<div class="stars"></div>
-<div class="moon"></div>
+<!-- Shooting stars container -->
+<div id="stars-container"></div>
+
+<script>
+// Create multiple shooting stars dynamically
+const starsContainer = document.getElementById('stars-container');
+
+for(let i = 0; i < 10; i++) { // 10 stars
+    const star = document.createElement('div');
+    star.classList.add('shooting-star');
+    
+    // Random start position
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // Random animation delay
+    star.style.animationDelay = Math.random() * 5 + 's';
+    
+    // Random length for variety
+    star.style.height = 50 + Math.random() * 50 + 'px';
+    
+    starsContainer.appendChild(star);
+}
+</script>
 
 <!-- ------------------ HEADER ------------------ -->
-<header>
+<header style="background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px); border-bottom: 1px solid #22344d; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2;">
     <div class="logo">
-        <img src="logo.png" alt="Medimind Logo">
+        <img src="logo.png" alt="Medimind Logo" style="height:55px;">
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="team.html">Team</a>
-        <a href="research.html">Research</a>
-        <a href="prototype.html">Prototype Log</a>
-        <a href="demo.html">Demo Video</a>
-        <a href="files.html">Project Files</a>
-        <a href="updates.html">Updates</a>
+        <a href="index.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Home</a>
+        <a href="team.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Team</a>
+        <a href="research.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Research</a>
+        <a href="prototype.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Prototype Log</a>
+        <a href="demo.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Demo Video</a>
+        <a href="files.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Project Files</a>
+        <a href="updates.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Updates</a>
     </nav>
 </header>
 
 <!-- ------------------ MAIN CONTENT ------------------ -->
-<section>
-    <h1>Medimind</h1>
+<section style="position:relative; z-index:2; max-width:900px; margin:60px auto; padding:40px; background: rgba(255,255,255,0.05); border-radius:14px; border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(4px);">
+    <h1 style="text-align:center; font-size:3rem; font-family: 'Orbitron', sans-serif; color:#78aaff; margin-top:0;">Medimind</h1>
 
-    <h2>Problem Statement</h2>
-    <p>
-        Deep-space missions face <strong>up to 40 minutes of communication delay each way</strong>, making it 
-        nearly impossible for astronauts to receive immediate medical support during emergencies. 
-        Limited crew medical training, unpredictable health conditions, and the complete lack of 
-        real-time expert assistance create a major mission risk.
-    </p>
-    <p>
-        Medimind addresses this challenge by providing an autonomous, real-time medical AI system that 
-        functions <strong>without Earth communication</strong>, ensuring crew safety during long-duration missions.
-    </p>
+    <h2 style="margin-top:35px; color:#a8c6ff; font-size:2rem; border-bottom:1px solid #294469; padding-bottom:6px;">Problem Statement</h2>
+    <p>Deep-space missions face <strong>up to 40 minutes of communication delay each way</strong>, making it nearly impossible for astronauts to receive immediate medical support during emergencies. Limited crew medical training, unpredictable health conditions, and the complete lack of real-time expert assistance create a major mission risk.</p>
+    <p>Medimind addresses this challenge by providing an autonomous, real-time medical AI system that functions <strong>without Earth communication</strong>, ensuring crew safety during long-duration missions.</p>
 
-    <h3>1. Instant Medical Guidance</h3>
-    <p>
-        Converts long communication delays into responses within seconds, offering mission-approved 
-        medical support immediately.
-    </p>
+    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">1. Instant Medical Guidance</h3>
+    <p>Converts long communication delays into responses within seconds, offering mission-approved medical support immediately.</p>
 
-    <h3>2. Blackout-Proof Operation</h3>
-    <p>
-        Functions reliably with zero internet, zero uplink, and during solar storms or equipment failure.
-    </p>
+    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">2. Blackout-Proof Operation</h3>
+    <p>Functions reliably with zero internet, zero uplink, and during solar storms or equipment failure.</p>
 
-    <h3>3. High-Level Diagnostic Support</h3>
-    <p>
-        Helps astronauts understand symptoms, possible causes, and safe treatment options.
-    </p>
+    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">3. High-Level Diagnostic Support</h3>
+    <p>Helps astronauts understand symptoms, possible causes, and safe treatment options.</p>
 
-    <h3>4. Autonomous Deep-Space Operation</h3>
-    <p>
-        Built to run on limited spacecraft hardware, Medimind becomes an independent medical assistant 
-        for missions beyond Earth’s reach.
-    </p>
+    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">4. Autonomous Deep-Space Operation</h3>
+    <p>Built to run on limited spacecraft hardware, Medimind becomes an independent medical assistant for missions beyond Earth’s reach.</p>
 </section>
 
 </body>
 </html>
+
 
