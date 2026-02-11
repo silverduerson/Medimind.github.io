@@ -21,9 +21,9 @@ body {
 .shooting-star {
     position: absolute;
     width: 2px;
-    height: 80px;
+    height: 60px;
     background: linear-gradient(to right, white, transparent);
-    opacity: 0.8;
+    opacity: 0;
     transform: rotate(20deg);
     animation: shoot 2s linear infinite;
 }
@@ -31,6 +31,12 @@ body {
 @keyframes shoot {
     0% {
         transform: translateX(0) translateY(0) rotate(20deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
         opacity: 1;
     }
     100% {
@@ -92,22 +98,25 @@ p { line-height: 1.7; font-size: 1.17rem; }
 // Create multiple shooting stars dynamically
 const starsContainer = document.getElementById('stars-container');
 
-for(let i = 0; i < 15; i++) { // 15 stars
+for(let i = 0; i < 20; i++) { // 20 stars
     const star = document.createElement('div');
     star.classList.add('shooting-star');
     
     // Random start position (off-screen to left)
     star.style.top = Math.random() * window.innerHeight + 'px';
-    star.style.left = -50 + Math.random() * -500 + 'px'; // start off left
+    star.style.left = -50 + Math.random() * -1000 + 'px';
     
     // Random animation delay
-    star.style.animationDelay = Math.random() * 5 + 's';
+    star.style.animationDelay = Math.random() * 10 + 's';
     
     // Random height for variety
     star.style.height = 30 + Math.random() * 70 + 'px';
     
     // Random opacity for depth
     star.style.opacity = 0.4 + Math.random() * 0.6;
+    
+    // Random speed by adjusting animation duration
+    star.style.animationDuration = 1.5 + Math.random() * 2.5 + 's';
     
     starsContainer.appendChild(star);
 }
@@ -153,5 +162,4 @@ for(let i = 0; i < 15; i++) { // 15 stars
 
 </body>
 </html>
-
 
