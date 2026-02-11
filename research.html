@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medimind – Research</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #dde9ff;
+    overflow-x: hidden;
+    background: black;
+}
+
+/* ------------------ TECH LINES ANIMATION ------------------ */
+.tech-line {
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(to right, #78aaff, transparent);
+    opacity: 0.5;
+    top: 0;
+    left: -200px;
+    animation: moveLine linear infinite;
+}
+
+@keyframes moveLine {
+    0% { transform: translateX(0) translateY(0); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateX(1200px) translateY(50px); opacity: 0; }
+}
+
+/* Header */
+header {
+    background: #1e3a8a; 
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #22344d;
+}
+
+.logo img { height: 55px; }
+
+nav a {
+    color: #dde9ff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+nav a:hover { color: #ffffff; }
+
+/* Content */
+section {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #78aaff; margin-top: 0; }
+h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
+h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
+p { line-height: 1.7; font-size: 1.17rem; }
+ul { margin-left: 20px; margin-top: 10px; }
+li { margin-bottom: 10px; }
+</style>
+</head>
+
+<body>
+
+<!-- Tech animation container -->
+<div id="tech-lines-container"></div>
+
+<script>
+// Create multiple tech lines dynamically
+const techContainer = document.getElementById('tech-lines-container');
+for(let i = 0; i < 15; i++) {
+    const line = document.createElement('div');
+    line.classList.add('tech-line');
+    line.style.top = Math.random() * window.innerHeight + 'px';
+    line.style.width = 100 + Math.random() * 200 + 'px';
+    line.style.animationDuration = 2 + Math.random() * 4 + 's';
+    line.style.opacity = 0.3 + Math.random() * 0.7;
+    techContainer.appendChild(line);
+}
+</script>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Medimind Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="research.html">Research</a>
+        <a href="prototype.html">Prototype Log</a>
+        <a href="demo.html">Demo Video</a>
+        <a href="files.html">Project Files</a>
+        <a href="updates.html">Updates</a>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<section>
+    <h1>Research</h1>
+
+    <h2>Research Approach and Weekly Plan</h2>
+    <p>
+        Our project focuses on developing <strong>Medimind</strong>, an autonomous medical AI for deep-space missions. 
+        The research and development process is organized into structured weekly phases to ensure a systematic approach 
+        to design, testing, and validation. Key activities include reviewing space-specific medical conditions, selecting 
+        appropriate AI models, and testing usability for astronauts in low-gravity and offline environments.
+    </p>
+
+    <ul>
+        <li><strong>Week 1 – Project Definition and Initial Research:</strong>
+            <ul>
+                <li>Define project goals and scope for astronaut-focused medical AI.</li>
+                <li>Investigate space-relevant medical conditions (dehydration, radiation exposure, muscle atrophy).</li>
+                <li>Review existing AI medical tools and spacecraft constraints, including offline operation and low-gravity usability.</li>
+            </ul>
+        </li>
+        <li><strong>Week 2 – System Architecture and Risk Assessment:</strong>
+            <ul>
+                <li>Draft system architecture integrating wearable sensors and AI software modules.</li>
+                <li>Select AI models including BioGPT for conversational processing and specialized diagnostic AI.</li>
+                <li>Identify required inputs: vital signs, crew-reported symptoms, environmental data.</li>
+                <li>Outline key risks: sensor errors, communication blackouts, potential AI misdiagnoses.</li>
+            </ul>
+        </li>
+        <li><strong>Week 3 – Prototype Development and Interface Design:</strong>
+            <ul>
+                <li>Choose initial AI models for testing.</li>
+                <li>Design user-friendly interface with voice and text input for astronauts.</li>
+                <li>Plan medical test scenarios for early validation.</li>
+                <li>Set up a basic simulation environment to evaluate AI response accuracy.</li>
+            </ul>
+        </li>
+        <li><strong>Week 4 – Integration and Testing:</strong>
+            <ul>
+                <li>Integrate BioGPT with initial diagnostic AI modules.</li>
+                <li>Run test cases using mock health data to validate handling and reasoning.</li>
+                <li>Collect feedback from medical and engineering advisors on usability and performance.</li>
+                <li>Refine interface and AI logic based on testing insights.</li>
+            </ul>
+        </li>
+        <li><strong>Week 5 – Analysis and Next Steps:</strong>
+            <ul>
+                <li>Analyze results and identify areas for improvement.</li>
+                <li>Plan next development phase: additional AI models and real-data testing.</li>
+                <li>Outline safety protocols, training procedures, and deployment steps for future iterations.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+</body>
+</html>
 
