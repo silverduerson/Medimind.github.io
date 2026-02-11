@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medimind – Deep Space Medical AI</title>
 
-<!-- Google Font -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -22,24 +22,64 @@ body {
     position: absolute;
     width: 2px;
     height: 80px;
-    background: linear-gradient(white, transparent);
+    background: linear-gradient(to right, white, transparent);
     opacity: 0.8;
-    transform: rotate(45deg);
+    transform: rotate(20deg);
     animation: shoot 2s linear infinite;
 }
 
 @keyframes shoot {
     0% {
-        transform: translate(0, 0) rotate(45deg);
+        transform: translateX(0) translateY(0) rotate(20deg);
         opacity: 1;
     }
     100% {
-        transform: translate(1000px, 600px) rotate(45deg);
+        transform: translateX(1200px) translateY(200px) rotate(20deg);
         opacity: 0;
     }
 }
 
-/* Generate multiple stars */
+/* ------------------ HEADER ------------------ */
+header {
+    background: #1e3a8a; /* light blue header */
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #22344d;
+}
+
+.logo img { height: 55px; }
+
+nav a {
+    color: #dde9ff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+nav a:hover { color: #ffffff; }
+
+/* ------------------ CONTENT ------------------ */
+section {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+h1 { text-align: center; font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #78aaff; margin-top: 0; }
+h2 { margin-top: 35px; color: #a8c6ff; font-size: 2rem; border-bottom: 1px solid #294469; padding-bottom: 6px; }
+h3 { margin-top: 25px; color: #c6dcff; font-size: 1.35rem; }
+p { line-height: 1.7; font-size: 1.17rem; }
 </style>
 </head>
 
@@ -52,59 +92,62 @@ body {
 // Create multiple shooting stars dynamically
 const starsContainer = document.getElementById('stars-container');
 
-for(let i = 0; i < 10; i++) { // 10 stars
+for(let i = 0; i < 15; i++) { // 15 stars
     const star = document.createElement('div');
     star.classList.add('shooting-star');
     
-    // Random start position
+    // Random start position (off-screen to left)
     star.style.top = Math.random() * window.innerHeight + 'px';
-    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.left = -50 + Math.random() * -500 + 'px'; // start off left
     
     // Random animation delay
     star.style.animationDelay = Math.random() * 5 + 's';
     
-    // Random length for variety
-    star.style.height = 50 + Math.random() * 50 + 'px';
+    // Random height for variety
+    star.style.height = 30 + Math.random() * 70 + 'px';
+    
+    // Random opacity for depth
+    star.style.opacity = 0.4 + Math.random() * 0.6;
     
     starsContainer.appendChild(star);
 }
 </script>
 
 <!-- ------------------ HEADER ------------------ -->
-<header style="background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px); border-bottom: 1px solid #22344d; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2;">
+<header>
     <div class="logo">
-        <img src="logo.png" alt="Medimind Logo" style="height:55px;">
+        <img src="logo.png" alt="Medimind Logo">
     </div>
 
     <nav>
-        <a href="index.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Home</a>
-        <a href="team.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Team</a>
-        <a href="research.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Research</a>
-        <a href="prototype.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Prototype Log</a>
-        <a href="demo.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Demo Video</a>
-        <a href="files.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Project Files</a>
-        <a href="updates.html" style="color:#9bbcff; margin-left:25px; text-decoration:none;">Updates</a>
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="research.html">Research</a>
+        <a href="prototype.html">Prototype Log</a>
+        <a href="demo.html">Demo Video</a>
+        <a href="files.html">Project Files</a>
+        <a href="updates.html">Updates</a>
     </nav>
 </header>
 
 <!-- ------------------ MAIN CONTENT ------------------ -->
-<section style="position:relative; z-index:2; max-width:900px; margin:60px auto; padding:40px; background: rgba(255,255,255,0.05); border-radius:14px; border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(4px);">
-    <h1 style="text-align:center; font-size:3rem; font-family: 'Orbitron', sans-serif; color:#78aaff; margin-top:0;">Medimind</h1>
+<section>
+    <h1>Medimind</h1>
 
-    <h2 style="margin-top:35px; color:#a8c6ff; font-size:2rem; border-bottom:1px solid #294469; padding-bottom:6px;">Problem Statement</h2>
+    <h2>Problem Statement</h2>
     <p>Deep-space missions face <strong>up to 40 minutes of communication delay each way</strong>, making it nearly impossible for astronauts to receive immediate medical support during emergencies. Limited crew medical training, unpredictable health conditions, and the complete lack of real-time expert assistance create a major mission risk.</p>
     <p>Medimind addresses this challenge by providing an autonomous, real-time medical AI system that functions <strong>without Earth communication</strong>, ensuring crew safety during long-duration missions.</p>
 
-    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">1. Instant Medical Guidance</h3>
+    <h3>1. Instant Medical Guidance</h3>
     <p>Converts long communication delays into responses within seconds, offering mission-approved medical support immediately.</p>
 
-    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">2. Blackout-Proof Operation</h3>
+    <h3>2. Blackout-Proof Operation</h3>
     <p>Functions reliably with zero internet, zero uplink, and during solar storms or equipment failure.</p>
 
-    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">3. High-Level Diagnostic Support</h3>
+    <h3>3. High-Level Diagnostic Support</h3>
     <p>Helps astronauts understand symptoms, possible causes, and safe treatment options.</p>
 
-    <h3 style="margin-top:25px; color:#c6dcff; font-size:1.35rem;">4. Autonomous Deep-Space Operation</h3>
+    <h3>4. Autonomous Deep-Space Operation</h3>
     <p>Built to run on limited spacecraft hardware, Medimind becomes an independent medical assistant for missions beyond Earth’s reach.</p>
 </section>
 
