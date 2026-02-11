@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medimind – Files & Updates</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -17,7 +16,6 @@ body {
     background: black;
 }
 
-/* ------------------ TECH LINES ANIMATION ------------------ */
 .tech-line {
     position: absolute;
     width: 150px;
@@ -36,7 +34,6 @@ body {
     100% { transform: translateX(1200px) translateY(50px); opacity: 0; }
 }
 
-/* Header */
 header {
     background: #1e3a8a; 
     padding: 15px 40px;
@@ -60,7 +57,6 @@ nav a {
 
 nav a:hover { color: #ffffff; }
 
-/* Content */
 section {
     position: relative;
     z-index: 2;
@@ -80,78 +76,52 @@ p { line-height: 1.7; font-size: 1.17rem; }
 ul { margin-left: 20px; margin-top: 10px; }
 li { margin-bottom: 10px; }
 
-/* Files */
-.file-item {
-    margin: 15px 0;
-}
-
-.file-item a {
-    color: #78aaff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.file-item a:hover {
-    text-decoration: underline;
-}
+.file-item { margin: 15px 0; }
+.file-item a { color: #78aaff; text-decoration: none; font-weight: 500; }
+.file-item a:hover { text-decoration: underline; }
 </style>
 </head>
 
 <body>
-
-<!-- Tech animation container -->
 <div id="tech-lines-container"></div>
-
 <script>
-// Create multiple tech lines dynamically
 const techContainer = document.getElementById('tech-lines-container');
-for(let i = 0; i < 15; i++) {
-    const line = document.createElement('div');
+for(let i=0;i<15;i++){
+    const line=document.createElement('div');
     line.classList.add('tech-line');
-    line.style.top = Math.random() * window.innerHeight + 'px';
-    line.style.width = 100 + Math.random() * 200 + 'px';
-    line.style.animationDuration = 2 + Math.random() * 4 + 's';
-    line.style.opacity = 0.3 + Math.random() * 0.7;
+    line.style.top=Math.random()*window.innerHeight+'px';
+    line.style.width=100+Math.random()*200+'px';
+    line.style.animationDuration=2+Math.random()*4+'s';
+    line.style.opacity=0.3+Math.random()*0.7;
     techContainer.appendChild(line);
 }
 </script>
 
-<!-- Header -->
 <header>
     <div class="logo">
         <img src="logo.png" alt="Medimind Logo">
     </div>
-
     <nav>
         <a href="index.html">Home</a>
         <a href="team.html">Team</a>
         <a href="research.html">Research</a>
         <a href="prototype.html">Prototype Log</a>
         <a href="demo.html">Demo Video</a>
-        <a href="Files&Updates.html">Files & Updates</a>
+        <a href="files-updates.html">Files & Updates</a>
     </nav>
 </header>
 
-<!-- Main Content -->
 <section>
     <h1>Files & Updates</h1>
 
-    <!-- FILES SECTION -->
+    <!-- FILES -->
     <h2>Project Files</h2>
-    <p>Download key project assets below:</p>
+    <p>Download key project assets:</p>
+    <div class="file-item"><a href="p1.png" download>P1 – Interface Screenshot 1</a></div>
+    <div class="file-item"><a href="p2.png" download>P2 – Interface Screenshot 2</a></div>
+    <div class="file-item"><a href="p4.png" download>P4 – Server Side Architecture</a></div>
 
-    <div class="file-item">
-        <a href="p1.png" download>P1 – Interface Screenshot 1</a>
-    </div>
-    <div class="file-item">
-        <a href="p2.png" download>P2 – Interface Screenshot 2</a>
-    </div>
-    <div class="file-item">
-        <a href="p4.png" download>P4 – Server Side Architecture</a>
-    </div>
-    <!-- Add more files as needed -->
-
-    <!-- UPDATES SECTION -->
+    <!-- UPDATES -->
     <h2>Project Updates</h2>
     <ul>
         <li><strong>Week 1:</strong> Defined project goals, researched space medical conditions.</li>
@@ -162,7 +132,5 @@ for(let i = 0; i < 15; i++) {
         <li><strong>Additional:</strong> Added training procedures, safety protocols, and deployment steps.</li>
     </ul>
 </section>
-
 </body>
 </html>
-
